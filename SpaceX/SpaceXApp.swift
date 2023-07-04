@@ -9,9 +9,24 @@ import SwiftUI
 
 @main
 struct SpaceXApp: App {
+    
+    
+    @StateObject var homeViewModel = ShuttleViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                ContentView()
+                    .environmentObject(homeViewModel)
+
+                ZStack {
+                    if homeViewModel.isShwoingLaunchScreen {
+                        SplashView()
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .zIndex(2.0)
+            }
         }
     }
 }

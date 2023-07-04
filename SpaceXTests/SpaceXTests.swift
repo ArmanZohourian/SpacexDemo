@@ -6,24 +6,59 @@
 //
 
 import XCTest
-
+@testable import SpaceX
 final class SpaceXTests: XCTestCase {
+    
+    var viewModel: ShuttleViewModel!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        viewModel = ShuttleViewModel()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    // MARK: - Test getLaunches() function
+
+    func testGetLaunches() async throws {
+        // Given
+        let expectation = XCTestExpectation(description: "Fetch launches")
+
+        // When
+        Task {
+            await viewModel.getLaunches()
+            expectation.fulfill()
+        }
+
+        // Then
+        await fulfillment(of: [expectation])
+        XCTAssertTrue(viewModel.alllaunches.count == 20, "Launches should be fetched")
+        XCTAssertFalse(viewModel.isLoading, "isLoading should be false")
+        XCTAssertFalse(viewModel.hasError, "hasError should be false")
     }
+
+    // MARK: - Test getNextSetOfLaunches() function
+
+    func testGetNextSetOfLaunches() async throws {
+        // Given
+        let expectation = XCTestExpectation(description: "Fetch next set of launches")
+
+        // When
+        Task {
+            await viewModel.getNextSetOfLaunches()
+            expectation.fulfill()
+        }
+
+        // Then
+        await fulfillment(of: [expectation])
+        XCTAssertTrue(viewModel.alllaunches.count >= 20, "Next set of launches should be fetched")
+    }
+
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
@@ -33,3 +68,8 @@ final class SpaceXTests: XCTestCase {
     }
 
 }
+
+
+
+
+

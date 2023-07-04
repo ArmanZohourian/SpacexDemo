@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>YekanBakhNoEn-Black.ttf</string>
+		<string>YekanBakhNoEn-ExtraBlack.ttf</string>
+		<string>YekanBakhNoEn-Bold.ttf</string>
+		<string>YekanBakhNoEn-Light.ttf</string>
+		<string>YekanBakhNoEn-ExtraBold.ttf</string>
+		<string>YekanBakhNoEn-Regular.ttf</string>
+		<string>YekanBakhNoEn-SemiBold.ttf</string>
+		<string>YekanBakhNoEn-Thin.ttf</string>
+	</array>
+</dict>
+</plist>
