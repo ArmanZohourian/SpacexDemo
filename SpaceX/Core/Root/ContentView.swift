@@ -11,7 +11,6 @@ struct ContentView: View {
     
     @EnvironmentObject private var shuttlesViewModel: ShuttleViewModel
     
-    
     var body: some View {
         content
             .overlay(alignment: .center) {
@@ -23,17 +22,13 @@ struct ContentView: View {
     }
     
     var content: some View {
-        
         TabView {
-            
             HomeView()
                 .environmentObject(shuttlesViewModel)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            
-            
             BookmarksView()
                 .tabItem {
                     Image(systemName: "bookmark")

@@ -6,3 +6,6 @@
 //
 
 import Foundation
+struct Patch: Codable {
+    let small, large: String?
+}

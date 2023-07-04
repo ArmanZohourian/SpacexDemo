@@ -11,19 +11,15 @@ protocol RequestManagerProtocol {
 }
 
 class RequestManager: RequestManagerProtocol {
-    
-    
     static let shared = RequestManager()
     
     func perform<T>(_ request: RequestProtocol) async throws -> T where T : Decodable, T : Encodable {
         
         let data = try await apiManager.perform(request, authToken: UserDefaults.standard.getToken())
-        
         let decoded: T = try parser.parser(data)
         return decoded
         
     }
-    
     let apiManager: APIManagerProtocol
     let parser: DataParserProtocol
     

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Flickr: Codable {
+    let small, original: [String]
+}

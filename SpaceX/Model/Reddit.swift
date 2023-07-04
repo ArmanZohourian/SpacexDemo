@@ -6,3 +6,7 @@
 //
 
 import Foundation
+struct Reddit: Codable {
+    let campaign: String?
+    let launch, media, recovery: String?
+}

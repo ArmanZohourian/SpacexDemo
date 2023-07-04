@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Fairings: Codable {
+    let reused, recoveryAttempt, recovered: Bool?
+    let ships: [String]
+}

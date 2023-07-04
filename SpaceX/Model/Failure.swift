@@ -6,3 +6,7 @@
 //
 
 import Foundation
+struct Failure: Codable {
+    let time, altitude: Int?
+    let reason: String?
+}

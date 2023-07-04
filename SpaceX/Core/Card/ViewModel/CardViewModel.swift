@@ -62,7 +62,7 @@ class CardViewModel: ObservableObject {
                 }
             }
         }
-        return "https://example.com/placeholder.jpg"
+        return ""
     }
     
     private func formatDate(_ dateString: String) -> String {

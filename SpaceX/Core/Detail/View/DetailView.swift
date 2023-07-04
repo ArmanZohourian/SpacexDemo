@@ -21,7 +21,7 @@ struct DetailView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    ImageSliderView(imageUrls: detailViewModel.getMissionImageUrls(with: detailViewModel.launch), currentIndex: $currentIndex)
+                    ImageSliderView(imageUrls: detailViewModel.missionImageUrls, currentIndex: $currentIndex)
                     HStack {
                         launchDate
                         launchStatus
@@ -37,7 +37,7 @@ struct DetailView: View {
                 Button(action: {
                     detailViewModel.updateBookmark(launch: detailViewModel.launch)
                 }) {
-                    Image(systemName: detailViewModel.checkIsBookmarked(launch: detailViewModel.launch) ? "bookmark.fill" : "bookmark")
+                    Image(systemName: detailViewModel.isBookmarked ? "bookmark.fill" : "bookmark")
                 }
             }
         }
@@ -96,7 +96,6 @@ extension DetailView {
         }
     }
 
-    
     private var sources: some View {
         Group {
             if let wekipediaLink = detailViewModel.wikipediaLink {

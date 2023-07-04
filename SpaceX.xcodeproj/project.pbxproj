@@ -12,7 +12,7 @@
 		9D15B2BE2A53EDA600BD9631 /* GetCrews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15B2BD2A53EDA600BD9631 /* GetCrews.swift */; };
 		9D36B2D62A4AC675002AEA5E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2D52A4AC675002AEA5E /* APIConstants.swift */; };
 		9D36B2D92A4AD341002AEA5E /* ShuttlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2D82A4AD341002AEA5E /* ShuttlesViewModel.swift */; };
-		9D36B2DB2A4AD5AF002AEA5E /* GeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2DA2A4AD5AF002AEA5E /* GeneralModel.swift */; };
+		9D36B2DB2A4AD5AF002AEA5E /* LaunchListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2DA2A4AD5AF002AEA5E /* LaunchListData.swift */; };
 		9D36B2DE2A4AD62B002AEA5E /* GetMissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2DD2A4AD62B002AEA5E /* GetMissions.swift */; };
 		9D3A26C32A4D4B100082CF4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A26C22A4D4B100082CF4E /* HomeView.swift */; };
 		9D3A26C52A4D69880082CF4E /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A26C42A4D69880082CF4E /* ImageSlider.swift */; };
@@ -29,6 +29,15 @@
 		9D51DCA42A4ABA5000A29D4D /* SpaceXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DCA32A4ABA5000A29D4D /* SpaceXUITests.swift */; };
 		9D51DCA62A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DCA52A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift */; };
 		9D6FDDF72A5423B9000F6311 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDF62A5423B9000F6311 /* NetworkManager.swift */; };
+		9D6FDDF92A54339D000F6311 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDF82A54339D000F6311 /* Core.swift */; };
+		9D6FDDFB2A5433B9000F6311 /* Fairings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDFA2A5433B9000F6311 /* Fairings.swift */; };
+		9D6FDDFD2A5433C5000F6311 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDFC2A5433C5000F6311 /* Links.swift */; };
+		9D6FDDFF2A5433DB000F6311 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDFE2A5433DB000F6311 /* Launch.swift */; };
+		9D6FDE012A5433F6000F6311 /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDE002A5433F6000F6311 /* Flickr.swift */; };
+		9D6FDE032A54340D000F6311 /* Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDE022A54340D000F6311 /* Patch.swift */; };
+		9D6FDE052A54341C000F6311 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDE042A54341C000F6311 /* Reddit.swift */; };
+		9D6FDE072A54342B000F6311 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDE062A54342B000F6311 /* Failure.swift */; };
+		9D6FDE092A543463000F6311 /* CrewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDE082A543463000F6311 /* CrewList.swift */; };
 		9DA192042A4F764700C1C08F /* LaunchesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192032A4F764700C1C08F /* LaunchesDataSource.swift */; };
 		9DA192062A4F7C0300C1C08F /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192052A4F7C0300C1C08F /* BookmarksViewModel.swift */; };
 		9DA1920C2A5160F700C1C08F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1920B2A5160F700C1C08F /* SplashView.swift */; };
@@ -73,7 +82,7 @@
 		9D15B2BD2A53EDA600BD9631 /* GetCrews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCrews.swift; sourceTree = "<group>"; };
 		9D36B2D52A4AC675002AEA5E /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = /Users/armanzohourian/Developer/SpaceX/SpaceX/Utills/Network/APIConstants.swift; sourceTree = "<absolute>"; };
 		9D36B2D82A4AD341002AEA5E /* ShuttlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttlesViewModel.swift; sourceTree = "<group>"; };
-		9D36B2DA2A4AD5AF002AEA5E /* GeneralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModel.swift; sourceTree = "<group>"; };
+		9D36B2DA2A4AD5AF002AEA5E /* LaunchListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListData.swift; sourceTree = "<group>"; };
 		9D36B2DD2A4AD62B002AEA5E /* GetMissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMissions.swift; sourceTree = "<group>"; };
 		9D3A26C22A4D4B100082CF4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9D3A26C42A4D69880082CF4E /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
@@ -94,6 +103,15 @@
 		9D51DCA32A4ABA5000A29D4D /* SpaceXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUITests.swift; sourceTree = "<group>"; };
 		9D51DCA52A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9D6FDDF62A5423B9000F6311 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9D6FDDF82A54339D000F6311 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		9D6FDDFA2A5433B9000F6311 /* Fairings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fairings.swift; sourceTree = "<group>"; };
+		9D6FDDFC2A5433C5000F6311 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		9D6FDDFE2A5433DB000F6311 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		9D6FDE002A5433F6000F6311 /* Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
+		9D6FDE022A54340D000F6311 /* Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patch.swift; sourceTree = "<group>"; };
+		9D6FDE042A54341C000F6311 /* Reddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
+		9D6FDE062A54342B000F6311 /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
+		9D6FDE082A543463000F6311 /* CrewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewList.swift; sourceTree = "<group>"; };
 		9DA192032A4F764700C1C08F /* LaunchesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesDataSource.swift; sourceTree = "<group>"; };
 		9DA192052A4F7C0300C1C08F /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		9DA1920A2A502E5500C1C08F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -211,7 +229,16 @@
 		9D36B2DF2A4ADB08002AEA5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9D36B2DA2A4AD5AF002AEA5E /* GeneralModel.swift */,
+				9D36B2DA2A4AD5AF002AEA5E /* LaunchListData.swift */,
+				9D6FDE082A543463000F6311 /* CrewList.swift */,
+				9D6FDE062A54342B000F6311 /* Failure.swift */,
+				9D6FDE042A54341C000F6311 /* Reddit.swift */,
+				9D6FDE022A54340D000F6311 /* Patch.swift */,
+				9D6FDE002A5433F6000F6311 /* Flickr.swift */,
+				9D6FDDFE2A5433DB000F6311 /* Launch.swift */,
+				9D6FDDFA2A5433B9000F6311 /* Fairings.swift */,
+				9D6FDDF82A54339D000F6311 /* Core.swift */,
+				9D6FDDFC2A5433C5000F6311 /* Links.swift */,
 				9D15B2BB2A53ED2300BD9631 /* CrewMember.swift */,
 				9D3A26CC2A4F217A0082CF4E /* BookmarkContainer.xcdatamodeld */,
 			);
@@ -280,10 +307,18 @@
 			path = SpaceXUITests;
 			sourceTree = "<group>";
 		};
-		9D86907F2A52CC3400B7E4A8 /* Core */ = {
+		9D6FDE0A2A543514000F6311 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				9D51DC892A4ABA4D00A29D4D /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		9D86907F2A52CC3400B7E4A8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9D6FDE0A2A543514000F6311 /* Root */,
 				9D15B2BF2A5404A800BD9631 /* Card */,
 				9D86908A2A52CD4F00B7E4A8 /* Components */,
 				9D8690872A52CD0900B7E4A8 /* Detail */,
@@ -543,22 +578,27 @@
 			files = (
 				9D6FDDF72A5423B9000F6311 /* NetworkManager.swift in Sources */,
 				9DF166132A4C000F00AE3F6E /* Cardify.swift in Sources */,
+				9D6FDE012A5433F6000F6311 /* Flickr.swift in Sources */,
 				9DA192042A4F764700C1C08F /* LaunchesDataSource.swift in Sources */,
 				9DDDAD942A541AA600633E70 /* DataParser.swift in Sources */,
-				9D36B2DB2A4AD5AF002AEA5E /* GeneralModel.swift in Sources */,
+				9D36B2DB2A4AD5AF002AEA5E /* LaunchListData.swift in Sources */,
 				9D3A26CB2A4F1D250082CF4E /* BookmarksView.swift in Sources */,
 				9DF166152A4C05B000AE3F6E /* CardView.swift in Sources */,
 				9DDDAD982A541AA600633E70 /* APIManager.swift in Sources */,
 				9DF166242A4CA20B00AE3F6E /* DetailView.swift in Sources */,
 				9D15B2BC2A53ED2300BD9631 /* CrewMember.swift in Sources */,
+				9D6FDDFF2A5433DB000F6311 /* Launch.swift in Sources */,
 				9DA192062A4F7C0300C1C08F /* BookmarksViewModel.swift in Sources */,
 				9DF1661E2A4C4C5B00AE3F6E /* ImageFetcher.swift in Sources */,
 				9D36B2D92A4AD341002AEA5E /* ShuttlesViewModel.swift in Sources */,
 				9DA1920C2A5160F700C1C08F /* SplashView.swift in Sources */,
 				9D15B2BE2A53EDA600BD9631 /* GetCrews.swift in Sources */,
+				9D6FDE032A54340D000F6311 /* Patch.swift in Sources */,
 				9D36B2DE2A4AD62B002AEA5E /* GetMissions.swift in Sources */,
 				9D15B2BA2A53E76A00BD9631 /* UserDefaults.swift in Sources */,
 				9DF1662A2A4CC61600AE3F6E /* DetailViewModel.swift in Sources */,
+				9D6FDDF92A54339D000F6311 /* Core.swift in Sources */,
+				9D6FDE072A54342B000F6311 /* Failure.swift in Sources */,
 				9DF166202A4C50D300AE3F6E /* CachedImageManager.swift in Sources */,
 				9DA192122A517FEC00C1C08F /* LaunchScreenStateManager.swift in Sources */,
 				9DF166172A4C1DFF00AE3F6E /* Colors.swift in Sources */,
@@ -566,8 +606,10 @@
 				9DDDAD932A541AA600633E70 /* RequestManager.swift in Sources */,
 				9D3A26C72A4DD4050082CF4E /* DetailCellView.swift in Sources */,
 				9D3A26C52A4D69880082CF4E /* ImageSlider.swift in Sources */,
+				9D6FDE092A543463000F6311 /* CrewList.swift in Sources */,
 				9D3A26C92A4EF2A00082CF4E /* SearchBarView.swift in Sources */,
 				9D3A26CE2A4F217A0082CF4E /* BookmarkContainer.xcdatamodeld in Sources */,
+				9D6FDE052A54341C000F6311 /* Reddit.swift in Sources */,
 				9DF166192A4C345C00AE3F6E /* CardViewModel.swift in Sources */,
 				9D36B2D62A4AC675002AEA5E /* APIConstants.swift in Sources */,
 				9DF166222A4C539F00AE3F6E /* CachedImage.swift in Sources */,
@@ -575,6 +617,8 @@
 				9D3A26C32A4D4B100082CF4E /* HomeView.swift in Sources */,
 				9D51DC882A4ABA4D00A29D4D /* SpaceXApp.swift in Sources */,
 				9DA192162A51D2B700C1C08F /* SearchMissions.swift in Sources */,
+				9D6FDDFD2A5433C5000F6311 /* Links.swift in Sources */,
+				9D6FDDFB2A5433B9000F6311 /* Fairings.swift in Sources */,
 				9D3A26D02A4F4C5C0082CF4E /* BookmarkDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

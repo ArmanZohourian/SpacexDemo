@@ -6,3 +6,6 @@
 //
 
 import Foundation
+struct CriewDataList: Codable {
+    let crew, role: String
+}

@@ -49,12 +49,19 @@ class DetailViewModel: ObservableObject {
         formatDate(launch.dateLocal)
     }
     
+    var missionImageUrls: [String] {
+        getMissionImageUrls(with: launch)
+    }
+    
+    var isBookmarked: Bool {
+        checkIsBookmarked(launch: launch)
+    }
+    
     //MARK: Model
     func addSubscribers() {
         launchesDataSource.$alllaunches
             .combineLatest(bookmarkDataService.$savedEntities)
             .map (filterLaunchesByEntities)
-        
             .sink { [weak self] (returnedBoormarks) in
                 self?.bookmarkLaunches = returnedBoormarks
             }
@@ -62,7 +69,7 @@ class DetailViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchCrewMembers(launchCrew: Crew) async {
+    func fetchCrewMembers(launchCrew: CriewDataList) async {
         do {
             let crew: CrewMember = try await requestManager.perform(GetCrews.byCrewId(crewId: launchCrew.crew))
             launchCrewMembers.append(crew)
@@ -72,7 +79,7 @@ class DetailViewModel: ObservableObject {
         }
     }
     
-    func checkIsBookmarked(launch: Launch) -> Bool {
+    private func checkIsBookmarked(launch: Launch) -> Bool {
         bookmarkLaunches.contains { $0.id == launch.id }
     }
     
@@ -107,7 +114,7 @@ class DetailViewModel: ObservableObject {
         }
     }
     
-    func getMissionImageUrls(with launch: Launch) -> [String] {
+    private func getMissionImageUrls(with launch: Launch) -> [String] {
         guard let originalImageUrls = launch.links?.flickr?.original , originalImageUrls.count != 0  else {
             // Handle the case when `originalImageUrls` is nil
             return ["https://startupmagazine.dk/wp-content/uploads/2021/05/SpaceX-logo.jpg"]
