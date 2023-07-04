@@ -15,15 +15,14 @@ struct BookmarksView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                if !bookmarkViewModel.bookmarkLaunches.isEmpty {
-                    savedBookmarkList
-                } else {
-                    Text ("You have no bookmarks yet.")
-                }
+                savedBookmarkList
             }
             .navigationTitle("Bookmarks")
             .navigationDestination(for: Launch.self) { launch in
                 DetailView(launch: launch)
+            }
+            .overlay(alignment: .center ) {
+                bookmarkEmptyText
             }
         }
     }
@@ -42,6 +41,16 @@ extension BookmarksView {
                 .buttonStyle(PlainButtonStyle())
             }
         }
+    }
+    
+    private var bookmarkEmptyText: some View {
+            Text ("You have no bookmarks yet.")
+                .font(.callout)
+                .fontWeight(.medium)
+                .multilineTextAlignment(.center)
+                .frame(alignment: .bottom)
+                .opacity(bookmarkViewModel.bookmarkLaunches.isEmpty ? 1.0 : 0.0)
+                
     }
     
 }
