@@ -10,10 +10,6 @@
 		9D15B2BA2A53E76A00BD9631 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15B2B92A53E76A00BD9631 /* UserDefaults.swift */; };
 		9D15B2BC2A53ED2300BD9631 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15B2BB2A53ED2300BD9631 /* CrewMember.swift */; };
 		9D15B2BE2A53EDA600BD9631 /* GetCrews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D15B2BD2A53EDA600BD9631 /* GetCrews.swift */; };
-		9D36B2C92A4AC55D002AEA5E /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2C52A4AC55D002AEA5E /* NetworkingManager.swift */; };
-		9D36B2CA2A4AC55D002AEA5E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2C62A4AC55D002AEA5E /* Parser.swift */; };
-		9D36B2CB2A4AC55D002AEA5E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2C72A4AC55D002AEA5E /* APIManager.swift */; };
-		9D36B2CC2A4AC55D002AEA5E /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2C82A4AC55D002AEA5E /* RequestManager.swift */; };
 		9D36B2D62A4AC675002AEA5E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2D52A4AC675002AEA5E /* APIConstants.swift */; };
 		9D36B2D92A4AD341002AEA5E /* ShuttlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2D82A4AD341002AEA5E /* ShuttlesViewModel.swift */; };
 		9D36B2DB2A4AD5AF002AEA5E /* GeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D36B2DA2A4AD5AF002AEA5E /* GeneralModel.swift */; };
@@ -32,12 +28,16 @@
 		9D51DC9A2A4ABA5000A29D4D /* SpaceXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DC992A4ABA5000A29D4D /* SpaceXTests.swift */; };
 		9D51DCA42A4ABA5000A29D4D /* SpaceXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DCA32A4ABA5000A29D4D /* SpaceXUITests.swift */; };
 		9D51DCA62A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DCA52A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift */; };
+		9D6FDDF72A5423B9000F6311 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FDDF62A5423B9000F6311 /* NetworkManager.swift */; };
 		9DA192042A4F764700C1C08F /* LaunchesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192032A4F764700C1C08F /* LaunchesDataSource.swift */; };
 		9DA192062A4F7C0300C1C08F /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192052A4F7C0300C1C08F /* BookmarksViewModel.swift */; };
 		9DA1920C2A5160F700C1C08F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1920B2A5160F700C1C08F /* SplashView.swift */; };
 		9DA192102A51714300C1C08F /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA1920F2A51714300C1C08F /* SplashScreen.storyboard */; };
 		9DA192122A517FEC00C1C08F /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192112A517FEC00C1C08F /* LaunchScreenStateManager.swift */; };
 		9DA192162A51D2B700C1C08F /* SearchMissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA192152A51D2B700C1C08F /* SearchMissions.swift */; };
+		9DDDAD932A541AA600633E70 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAD8D2A541AA600633E70 /* RequestManager.swift */; };
+		9DDDAD942A541AA600633E70 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAD8E2A541AA600633E70 /* DataParser.swift */; };
+		9DDDAD982A541AA600633E70 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAD922A541AA600633E70 /* APIManager.swift */; };
 		9DF166132A4C000F00AE3F6E /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF166122A4C000F00AE3F6E /* Cardify.swift */; };
 		9DF166152A4C05B000AE3F6E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF166142A4C05B000AE3F6E /* CardView.swift */; };
 		9DF166172A4C1DFF00AE3F6E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF166162A4C1DFF00AE3F6E /* Colors.swift */; };
@@ -71,11 +71,7 @@
 		9D15B2B92A53E76A00BD9631 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		9D15B2BB2A53ED2300BD9631 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 		9D15B2BD2A53EDA600BD9631 /* GetCrews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCrews.swift; sourceTree = "<group>"; };
-		9D36B2C52A4AC55D002AEA5E /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingManager.swift; path = ../../../../../Downloads/OKTime/OKTime/NetworkingManager.swift; sourceTree = "<group>"; };
-		9D36B2C62A4AC55D002AEA5E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = ../../../../../Downloads/OKTime/OKTime/Parser.swift; sourceTree = "<group>"; };
-		9D36B2C72A4AC55D002AEA5E /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = ../../../../../Downloads/OKTime/OKTime/APIManager.swift; sourceTree = "<group>"; };
-		9D36B2C82A4AC55D002AEA5E /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestManager.swift; path = ../../../../../Downloads/OKTime/OKTime/RequestManager.swift; sourceTree = "<group>"; };
-		9D36B2D52A4AC675002AEA5E /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		9D36B2D52A4AC675002AEA5E /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIConstants.swift; path = /Users/armanzohourian/Developer/SpaceX/SpaceX/Utills/Network/APIConstants.swift; sourceTree = "<absolute>"; };
 		9D36B2D82A4AD341002AEA5E /* ShuttlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuttlesViewModel.swift; sourceTree = "<group>"; };
 		9D36B2DA2A4AD5AF002AEA5E /* GeneralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralModel.swift; sourceTree = "<group>"; };
 		9D36B2DD2A4AD62B002AEA5E /* GetMissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMissions.swift; sourceTree = "<group>"; };
@@ -87,7 +83,7 @@
 		9D3A26CD2A4F217A0082CF4E /* BookmarkContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookmarkContainer.xcdatamodel; sourceTree = "<group>"; };
 		9D3A26CF2A4F4C5C0082CF4E /* BookmarkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDataService.swift; sourceTree = "<group>"; };
 		9D51DC842A4ABA4D00A29D4D /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D51DC872A4ABA4D00A29D4D /* SpaceXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXApp.swift; sourceTree = "<group>"; };
+		9D51DC872A4ABA4D00A29D4D /* SpaceXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpaceXApp.swift; path = /Users/armanzohourian/Developer/SpaceX/SpaceX/SpaceXApp.swift; sourceTree = "<absolute>"; };
 		9D51DC892A4ABA4D00A29D4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D51DC8B2A4ABA4F00A29D4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D51DC8D2A4ABA4F00A29D4D /* SpaceX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpaceX.entitlements; sourceTree = "<group>"; };
@@ -97,6 +93,7 @@
 		9D51DC9F2A4ABA5000A29D4D /* SpaceXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D51DCA32A4ABA5000A29D4D /* SpaceXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUITests.swift; sourceTree = "<group>"; };
 		9D51DCA52A4ABA5000A29D4D /* SpaceXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D6FDDF62A5423B9000F6311 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9DA192032A4F764700C1C08F /* LaunchesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesDataSource.swift; sourceTree = "<group>"; };
 		9DA192052A4F7C0300C1C08F /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		9DA1920A2A502E5500C1C08F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +101,9 @@
 		9DA1920F2A51714300C1C08F /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		9DA192112A517FEC00C1C08F /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
 		9DA192152A51D2B700C1C08F /* SearchMissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMissions.swift; sourceTree = "<group>"; };
+		9DDDAD8D2A541AA600633E70 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestManager.swift; path = /Users/armanzohourian/Developer/SpaceX/SpaceX/Utills/Network/RequestManager.swift; sourceTree = "<absolute>"; };
+		9DDDAD8E2A541AA600633E70 /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		9DDDAD922A541AA600633E70 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = /Users/armanzohourian/Developer/SpaceX/SpaceX/Utills/Network/APIManager.swift; sourceTree = "<absolute>"; };
 		9DF166122A4C000F00AE3F6E /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		9DF166142A4C05B000AE3F6E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		9DF166162A4C1DFF00AE3F6E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -180,10 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				9D36B2D52A4AC675002AEA5E /* APIConstants.swift */,
-				9D36B2C72A4AC55D002AEA5E /* APIManager.swift */,
-				9D36B2C52A4AC55D002AEA5E /* NetworkingManager.swift */,
-				9D36B2C62A4AC55D002AEA5E /* Parser.swift */,
-				9D36B2C82A4AC55D002AEA5E /* RequestManager.swift */,
+				9DDDAD922A541AA600633E70 /* APIManager.swift */,
+				9DDDAD8E2A541AA600633E70 /* DataParser.swift */,
+				9D6FDDF62A5423B9000F6311 /* NetworkManager.swift */,
+				9DDDAD8D2A541AA600633E70 /* RequestManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -251,8 +251,9 @@
 				9D51DC8D2A4ABA4F00A29D4D /* SpaceX.entitlements */,
 				9D51DC8E2A4ABA4F00A29D4D /* Preview Content */,
 			);
-			path = SpaceX;
-			sourceTree = "<group>";
+			name = SpaceX;
+			path = /Users/armanzohourian/Developer/SpaceX/SpaceX;
+			sourceTree = "<absolute>";
 		};
 		9D51DC8E2A4ABA4F00A29D4D /* Preview Content */ = {
 			isa = PBXGroup;
@@ -540,13 +541,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6FDDF72A5423B9000F6311 /* NetworkManager.swift in Sources */,
 				9DF166132A4C000F00AE3F6E /* Cardify.swift in Sources */,
 				9DA192042A4F764700C1C08F /* LaunchesDataSource.swift in Sources */,
+				9DDDAD942A541AA600633E70 /* DataParser.swift in Sources */,
 				9D36B2DB2A4AD5AF002AEA5E /* GeneralModel.swift in Sources */,
 				9D3A26CB2A4F1D250082CF4E /* BookmarksView.swift in Sources */,
-				9D36B2CA2A4AC55D002AEA5E /* Parser.swift in Sources */,
-				9D36B2C92A4AC55D002AEA5E /* NetworkingManager.swift in Sources */,
 				9DF166152A4C05B000AE3F6E /* CardView.swift in Sources */,
+				9DDDAD982A541AA600633E70 /* APIManager.swift in Sources */,
 				9DF166242A4CA20B00AE3F6E /* DetailView.swift in Sources */,
 				9D15B2BC2A53ED2300BD9631 /* CrewMember.swift in Sources */,
 				9DA192062A4F7C0300C1C08F /* BookmarksViewModel.swift in Sources */,
@@ -555,15 +557,14 @@
 				9DA1920C2A5160F700C1C08F /* SplashView.swift in Sources */,
 				9D15B2BE2A53EDA600BD9631 /* GetCrews.swift in Sources */,
 				9D36B2DE2A4AD62B002AEA5E /* GetMissions.swift in Sources */,
-				9D36B2CB2A4AC55D002AEA5E /* APIManager.swift in Sources */,
 				9D15B2BA2A53E76A00BD9631 /* UserDefaults.swift in Sources */,
 				9DF1662A2A4CC61600AE3F6E /* DetailViewModel.swift in Sources */,
 				9DF166202A4C50D300AE3F6E /* CachedImageManager.swift in Sources */,
 				9DA192122A517FEC00C1C08F /* LaunchScreenStateManager.swift in Sources */,
 				9DF166172A4C1DFF00AE3F6E /* Colors.swift in Sources */,
 				9DF1661B2A4C412300AE3F6E /* ImageCache.swift in Sources */,
+				9DDDAD932A541AA600633E70 /* RequestManager.swift in Sources */,
 				9D3A26C72A4DD4050082CF4E /* DetailCellView.swift in Sources */,
-				9D36B2CC2A4AC55D002AEA5E /* RequestManager.swift in Sources */,
 				9D3A26C52A4D69880082CF4E /* ImageSlider.swift in Sources */,
 				9D3A26C92A4EF2A00082CF4E /* SearchBarView.swift in Sources */,
 				9D3A26CE2A4F217A0082CF4E /* BookmarkContainer.xcdatamodeld in Sources */,
