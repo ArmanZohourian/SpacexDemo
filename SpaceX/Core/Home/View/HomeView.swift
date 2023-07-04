@@ -29,7 +29,7 @@ struct HomeView: View {
                 shuttlesListView
             }
                 .navigationTitle("Launches")
-                .navigationDestination(for: Doc.self) { launch in
+                .navigationDestination(for: Launch.self) { launch in
                     DetailView(launch: launch)
                 }
                 .overlay {

@@ -7,14 +7,10 @@
 
 import Foundation
 
-
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-
 //MARK: Main struct
 struct Welcome: Codable {
     
-    let docs: [Doc]?
+    let docs: [Launch]?
     let offset: Int?
     let totalDocs, limit, totalPages: Int
     let page, pagingCounter: Int
@@ -24,7 +20,7 @@ struct Welcome: Codable {
 }
 
 //MARK: Doc
-struct Doc: Codable, Identifiable, Hashable {
+struct Launch: Codable, Identifiable, Hashable {
 
     
     
@@ -33,7 +29,7 @@ struct Doc: Codable, Identifiable, Hashable {
         hasher.combine(id)
     }
     
-    static func == (lhs: Doc, rhs: Doc) -> Bool {
+    static func == (lhs: Launch, rhs: Launch) -> Bool {
         return lhs.id == rhs.id && rhs.id == lhs.id
     }
     

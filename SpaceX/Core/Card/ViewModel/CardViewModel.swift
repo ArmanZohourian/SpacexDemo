@@ -10,9 +10,9 @@ import SwiftUI
 
 class CardViewModel: ObservableObject {
     
-    let launch: Doc
+    let launch: Launch
     
-    init(launch: Doc) {
+    init(launch: Launch) {
         self.launch = launch
     }
     
@@ -32,7 +32,7 @@ class CardViewModel: ObservableObject {
         formatDate(launch.dateLocal)
     }
     
-    private func getSuccessStatus(with launch: Doc) -> String {
+    private func getSuccessStatus(with launch: Launch) -> String {
         if let successStatus = launch.success {
             if successStatus {
                 return "Successfull"
@@ -43,7 +43,7 @@ class CardViewModel: ObservableObject {
         return "Cancelled"
     }
     
-    private func getSucessColor(with launch: Doc) -> Color {
+    private func getSucessColor(with launch: Launch) -> Color {
         if let successStatus = launch.success {
             if  successStatus {
                 return Color.green
@@ -54,7 +54,7 @@ class CardViewModel: ObservableObject {
         return Color.blue
 }
     
-    private func getImageUrl(with launch: Doc) -> String {
+    private func getImageUrl(with launch: Launch) -> String {
         if let links = launch.links {
             if let patch = links.patch {
                 if let smallPatchUrlString = patch.small {

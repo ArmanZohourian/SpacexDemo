@@ -11,6 +11,6 @@ class LaunchesDataSource {
     
     static let shared = LaunchesDataSource() // Singleton
     
-    @Published var alllaunches = [Doc]()
+    @Published var alllaunches = [Launch]()
     
 }

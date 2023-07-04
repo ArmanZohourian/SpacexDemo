@@ -22,7 +22,7 @@ struct BookmarksView: View {
                 }
             }
             .navigationTitle("Bookmarks")
-            .navigationDestination(for: Doc.self) { launch in
+            .navigationDestination(for: Launch.self) { launch in
                 DetailView(launch: launch)
             }
         }

@@ -12,7 +12,7 @@ struct CardView: View {
     
     @StateObject var cardViewModel : CardViewModel
     
-    init(launch: Doc) {
+    init(launch: Launch) {
         _cardViewModel = StateObject(wrappedValue: CardViewModel(launch: launch))
     }
     

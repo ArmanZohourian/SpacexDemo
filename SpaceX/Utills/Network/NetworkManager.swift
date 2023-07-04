@@ -101,9 +101,7 @@ enum NetworkError: Error {
     case badRequest
     case invalidServerResponse
     
-    
     var errorMessage: String {
-        
         switch self {
         case .invalidURL:
             return "Invalid URL"
@@ -113,9 +111,7 @@ enum NetworkError: Error {
             
         case .invalidServerResponse:
             return "Invalid server response"
-            
-        default:
-            return "Unknown Error"
+
         }
     }
 

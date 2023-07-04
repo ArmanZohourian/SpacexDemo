@@ -31,7 +31,7 @@ class BookmarkDataService {
     }
     
     //MARK: Public
-    func updateBookmark(launch: Doc) {
+    func updateBookmark(launch: Launch) {
         if let entity = savedEntities.first(where: { $0.id == launch.id }) {
             removeBookmark(entity: entity)
         } else {
@@ -49,7 +49,7 @@ class BookmarkDataService {
         }
     }
     
-    private func addBookmark(launch: Doc) {
+    private func addBookmark(launch: Launch) {
         
         let entity = BookmarkEntity(context: container.viewContext)
         

@@ -13,7 +13,7 @@ struct DetailView: View {
     @State var currentIndex = 0
     @State var showFullDescription = false
         
-    init(launch: Doc) {
+    init(launch: Launch) {
         _detailViewModel = StateObject(wrappedValue: DetailViewModel(launch: launch))
     }
     

@@ -17,11 +17,11 @@ class DetailViewModel: ObservableObject {
     private let requestManager = RequestManager.shared
     private var cancellables = Set<AnyCancellable>()
     
-    @Published private(set) var bookmarkLaunches = [Doc]()
+    @Published private(set) var bookmarkLaunches = [Launch]()
     @Published private(set) var launchCrewMembers = [CrewMember]()
-    @Published var launch: Doc
+    @Published var launch: Launch
     
-    init(launch: Doc) {
+    init(launch: Launch) {
         
         self.launch = launch
         self.addSubscribers()
@@ -72,11 +72,11 @@ class DetailViewModel: ObservableObject {
         }
     }
     
-    func checkIsBookmarked(launch: Doc) -> Bool {
+    func checkIsBookmarked(launch: Launch) -> Bool {
         bookmarkLaunches.contains { $0.id == launch.id }
     }
     
-    private func getSuccessStatus(with launch: Doc) -> String {
+    private func getSuccessStatus(with launch: Launch) -> String {
         if let successStatus = launch.success {
             if successStatus {
                 return "Successfull"
@@ -87,7 +87,7 @@ class DetailViewModel: ObservableObject {
         return "Cancelled"
     }
     
-    private func getWekipediaLink(with launch: Doc) -> String? {
+    private func getWekipediaLink(with launch: Launch) -> String? {
         if let links = launch.links, let wekipediaLink = links.wikipedia {
             return wekipediaLink
         }
@@ -107,7 +107,7 @@ class DetailViewModel: ObservableObject {
         }
     }
     
-    func getMissionImageUrls(with launch: Doc) -> [String] {
+    func getMissionImageUrls(with launch: Launch) -> [String] {
         guard let originalImageUrls = launch.links?.flickr?.original , originalImageUrls.count != 0  else {
             // Handle the case when `originalImageUrls` is nil
             return ["https://startupmagazine.dk/wp-content/uploads/2021/05/SpaceX-logo.jpg"]
@@ -115,7 +115,7 @@ class DetailViewModel: ObservableObject {
     return originalImageUrls
 }
     
-    private func filterLaunchesByEntities(launches: [Doc], bookmarkEntities: [BookmarkEntity]) -> [Doc] {
+    private func filterLaunchesByEntities(launches: [Launch], bookmarkEntities: [BookmarkEntity]) -> [Launch] {
         launches
             .compactMap { launch in
                 guard bookmarkEntities.first(where: { $0.id == launch.id }) != nil else {
@@ -126,7 +126,7 @@ class DetailViewModel: ObservableObject {
     }
     
     //MARK: Intent(s)
-    func updateBookmark(launch: Doc) {
+    func updateBookmark(launch: Launch) {
         bookmarkDataService.updateBookmark(launch: launch)
     }
     

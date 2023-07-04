@@ -19,9 +19,9 @@ class ShuttleViewModel: ObservableObject  {
     private let launchesDataSource = LaunchesDataSource.shared
     private var cancellables = Set<AnyCancellable>()
     
-    @Published private(set) var alllaunches = [Doc]()
-    @Published private(set) var filteredLaunches = [Doc]()
-    @Published private(set) var bookmarkLaunches = [Doc]()
+    @Published private(set) var alllaunches = [Launch]()
+    @Published private(set) var filteredLaunches = [Launch]()
+    @Published private(set) var bookmarkLaunches = [Launch]()
     @Published private(set) var isLoading = false
     @Published private(set) var isShwoingLaunchScreen = true
     @Published var hasError = false
@@ -105,7 +105,7 @@ class ShuttleViewModel: ObservableObject  {
         }
     }
 
-    func getSucessColor(with launch: Doc) -> Color {
+    func getSucessColor(with launch: Launch) -> Color {
         if  launch.success! {
            return Color.green
         } else if !launch.success! {
@@ -114,14 +114,14 @@ class ShuttleViewModel: ObservableObject  {
        return Color.blue
    }
     
-    func getWekipediaLink(with launch: Doc) -> String? {
+    func getWekipediaLink(with launch: Launch) -> String? {
         if let links = launch.links, let wekipediaLink = links.wikipedia {
             return wekipediaLink
         }
         return nil
     }
     
-    func getMissionImageUrls(with launch: Doc) -> [String] {
+    func getMissionImageUrls(with launch: Launch) -> [String] {
         guard let originalImageUrls = launch.links?.flickr?.original , originalImageUrls.count != 0  else {
             // Handle the case when `originalImageUrls` is nil
             return ["https://startupmagazine.dk/wp-content/uploads/2021/05/SpaceX-logo.jpg"]
@@ -129,11 +129,11 @@ class ShuttleViewModel: ObservableObject  {
     return originalImageUrls
 }
     
-    func checkIsBookmarked(launch: Doc) -> Bool {
+    func checkIsBookmarked(launch: Launch) -> Bool {
         bookmarkLaunches.contains { $0.id == launch.id }
     }
     
-    func getSuccessStatus(with launch: Doc) -> String {
+    func getSuccessStatus(with launch: Launch) -> String {
         if launch.success! {
             return "Successfull"
         } else {
@@ -146,11 +146,11 @@ class ShuttleViewModel: ObservableObject  {
     }
     
     //MARK: Intent(s)
-    func checkIfHasReachedEnd(with launch: Doc) -> Bool {
+    func checkIfHasReachedEnd(with launch: Launch) -> Bool {
         alllaunches.last?.id == launch.id
     }
 
-    func updateBookmark(launch: Doc) {
+    func updateBookmark(launch: Launch) {
         bookmarkDataService.updateBookmark(launch: launch)
     }
     
@@ -163,7 +163,7 @@ class ShuttleViewModel: ObservableObject  {
         }
     }
 
-    private func filterShuttleListBySearch(searchText: String, launches: [Doc]) -> [Doc] {
+    private func filterShuttleListBySearch(searchText: String, launches: [Launch]) -> [Launch] {
         
         guard !searchText.isEmpty else {
             return launches
@@ -179,7 +179,7 @@ class ShuttleViewModel: ObservableObject  {
 
     }
     
-    private func filterLaunchesBySavedEntities(launchModels: [Doc], bookmarkEntities: [BookmarkEntity]) -> [Doc] {
+    private func filterLaunchesBySavedEntities(launchModels: [Launch], bookmarkEntities: [BookmarkEntity]) -> [Launch] {
         launchModels
             .compactMap { launch in
                 guard bookmarkEntities.first(where: { $0.id == launch.id }) != nil else {

@@ -20,10 +20,11 @@ final class CachedImageManager: ObservableObject {
         if let imageData = cache.getObject(forkey: imageUrl as NSString) {
             
             self.data = imageData
+            #if DEBUG
             print("Fetching the image from the cache!📲")
+            #endif
             return
         }
-         
         do {
             self.data = try await imageFetcher.fetch(imageUrl)
             if let dataToCache = data as? NSData {

@@ -14,7 +14,7 @@ class BookmarksViewModel: ObservableObject {
     private let launchesDataSource = LaunchesDataSource.shared
     private var cancellables = Set<AnyCancellable>()
     
-    @Published private(set) var bookmarkLaunches = [Doc]()
+    @Published private(set) var bookmarkLaunches = [Launch]()
     
     init() {
         addSubscribers()
@@ -31,7 +31,7 @@ class BookmarksViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func filterLaunchesByEntities(launches: [Doc], bookmarkEntities: [BookmarkEntity]) -> [Doc] {
+    private func filterLaunchesByEntities(launches: [Launch], bookmarkEntities: [BookmarkEntity]) -> [Launch] {
         launches
             .compactMap { launch in
                 guard bookmarkEntities.first(where: { $0.id == launch.id }) != nil else {
