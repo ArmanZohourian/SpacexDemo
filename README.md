@@ -24,6 +24,10 @@
  - Architecture
    - MVVM pattern with observable view models and Combine for reactive updates.
    - Modular code: separate files for models, networking, caching, and UI.
+   - Fully integrated protocol-oriented design that improves separation of concerns and follows Clean Architecture principles.
+   - Data access is encapsulated behind a repository layer, keeping API and persistence concerns out of the UI and view models.
+   - View models and repositories are defined through protocols, making dependencies easier to replace, mock, and test.
+   - This structure makes the project more scalable, maintainable, and testable as features grow.
  
  Technologies Used:
  - SwiftUI
