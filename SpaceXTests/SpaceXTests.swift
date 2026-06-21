@@ -7,69 +7,155 @@
 
 import XCTest
 @testable import SpaceX
+
+@MainActor
 final class SpaceXTests: XCTestCase {
-    
-    var viewModel: ShuttleViewModel!
+
+    private var launchRepository: MockLaunchRepository!
+    private var viewModel: ShuttleViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         try super.setUpWithError()
-        viewModel = ShuttleViewModel()
+        launchRepository = MockLaunchRepository()
+        viewModel = ShuttleViewModel(launchRepository: launchRepository)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         viewModel = nil
+        launchRepository = nil
         try super.tearDownWithError()
     }
 
-    // MARK: - Test getLaunches() function
+    func testGetLaunchesAddsMockedLaunches() async {
+        launchRepository.result = makeLaunchListData(launches: [
+            makeLaunch(id: "launch-1", flightNumber: 1),
+            makeLaunch(id: "launch-2", flightNumber: 2)
+        ])
 
-    func testGetLaunches() async throws {
-        // Given
-        let expectation = XCTestExpectation(description: "Fetch launches")
+        await viewModel.getLaunches()
 
-        // When
-        Task {
-            await viewModel.getLaunches()
-            expectation.fulfill()
-        }
-
-        // Then
-        await fulfillment(of: [expectation])
-        XCTAssertTrue(viewModel.alllaunches.count == 20, "Launches should be fetched")
-        XCTAssertFalse(viewModel.isLoading, "isLoading should be false")
-        XCTAssertFalse(viewModel.hasError, "hasError should be false")
+        XCTAssertEqual(viewModel.alllaunches.count, 2)
+        XCTAssertEqual(viewModel.alllaunches.map(\.id), ["launch-1", "launch-2"])
+        XCTAssertFalse(viewModel.isLoading)
+        XCTAssertFalse(viewModel.hasError)
     }
 
-    // MARK: - Test getNextSetOfLaunches() function
+    func testGetLaunchesSetsErrorWhenRequestFails() async {
+        launchRepository.error = MockLaunchRepositoryError.failed
 
-    func testGetNextSetOfLaunches() async throws {
-        // Given
-        let expectation = XCTestExpectation(description: "Fetch next set of launches")
+        await viewModel.getLaunches()
 
-        // When
-        Task {
-            await viewModel.getNextSetOfLaunches()
-            expectation.fulfill()
-        }
-
-        // Then
-        await fulfillment(of: [expectation])
-        XCTAssertTrue(viewModel.alllaunches.count >= 20, "Next set of launches should be fetched")
+        XCTAssertTrue(viewModel.alllaunches.isEmpty)
+        XCTAssertFalse(viewModel.isLoading)
+        XCTAssertTrue(viewModel.hasError)
     }
 
+    func testGetNextSetOfLaunchesIncrementsPageAndAppendsLaunches() async {
+        launchRepository.result = makeLaunchListData(launches: [
+            makeLaunch(id: "next-launch", flightNumber: 21)
+        ])
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+        await viewModel.getNextSetOfLaunches()
+
+        XCTAssertEqual(viewModel.pageNumber, 2)
+        XCTAssertEqual(viewModel.alllaunches.count, 1)
+        XCTAssertEqual(viewModel.alllaunches.first?.id, "next-launch")
     }
 
+    func testGetLaunchesDoesNotFetchWhenLaunchesAlreadyExist() async {
+        launchRepository.result = makeLaunchListData(launches: [
+            makeLaunch(id: "existing-launch", flightNumber: 1)
+        ])
+        await viewModel.getLaunches()
+
+        launchRepository.result = makeLaunchListData(launches: [
+            makeLaunch(id: "ignored-launch", flightNumber: 2)
+        ])
+        await viewModel.getLaunches()
+
+        XCTAssertEqual(launchRepository.getLaunchesCallCount, 1)
+        XCTAssertEqual(viewModel.alllaunches.map(\.id), ["existing-launch"])
+    }
 }
 
+private final class MockLaunchRepository: LaunchRepositoryProtocol {
+    var result: LaunchListData?
+    var error: Error?
+    private(set) var getLaunchesCallCount = 0
+    private(set) var searchLaunchesCallCount = 0
 
+    func getLaunches(upcoming: Bool, limit: Int, pageNumber: Int, sort: String) async throws -> LaunchListData {
+        getLaunchesCallCount += 1
 
+        if let error {
+            throw error
+        }
 
+        guard let result else {
+            throw MockLaunchRepositoryError.missingResult
+        }
 
+        return result
+    }
+
+    func searchLaunches(upcoming: Bool, limit: Int, pageNumber: Int, sort: String, searchText: String) async throws -> LaunchListData {
+        searchLaunchesCallCount += 1
+
+        if let error {
+            throw error
+        }
+
+        guard let result else {
+            throw MockLaunchRepositoryError.missingResult
+        }
+
+        return result
+    }
+}
+
+private enum MockLaunchRepositoryError: Error {
+    case failed
+    case missingResult
+}
+
+private func makeLaunchListData(launches: [Launch]) -> LaunchListData {
+    LaunchListData(
+        docs: launches,
+        offset: 0,
+        totalDocs: launches.count,
+        limit: launches.count,
+        totalPages: 1,
+        page: 1,
+        pagingCounter: 1,
+        hasPrevPage: false,
+        hasNextPage: false,
+        prevPage: nil,
+        nextPage: nil
+    )
+}
+
+private func makeLaunch(id: String, flightNumber: Int, name: String = "Test Launch") -> Launch {
+    Launch(
+        id: id,
+        fairings: nil,
+        links: nil,
+        net: false,
+        window: nil,
+        rocket: "rocket",
+        success: true,
+        failures: [],
+        details: nil,
+        ships: [],
+        capsules: [],
+        payloads: [],
+        launchpad: "launchpad",
+        flightNumber: flightNumber,
+        name: name,
+        dateUTC: nil,
+        dateLocal: "2026-06-21T00:00:00+02:00",
+        upcoming: false,
+        cores: [],
+        autoUpdate: nil,
+        tbd: false
+    )
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct BookmarksView: View {
     
     
-    @StateObject  var bookmarkViewModel = BookmarksViewModel()
+    @StateObject var bookmarkViewModel = BookmarksViewModel()
     
     var body: some View {
         NavigationStack {

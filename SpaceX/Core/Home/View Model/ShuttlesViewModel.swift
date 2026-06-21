@@ -14,7 +14,7 @@ import Combine
 class ShuttleViewModel: ObservableObject  {
     
     
-    private var requestManager = RequestManager.shared
+    private let launchRepository: LaunchRepositoryProtocol
     private let bookmarkDataService = BookmarkDataService()
     private let launchesDataSource = LaunchesDataSource.shared
     private var cancellables = Set<AnyCancellable>()
@@ -32,7 +32,8 @@ class ShuttleViewModel: ObservableObject  {
     var pageNumber = 1
     var sort = "desc"
 
-    init() {
+    init(launchRepository: LaunchRepositoryProtocol = LaunchRepository()) {
+        self.launchRepository = launchRepository
         addSubscribers()
         
     }
@@ -67,7 +68,7 @@ class ShuttleViewModel: ObservableObject  {
         hasError = false
         defer { isLoading = false }
         do {
-            let result: LaunchListData = try await requestManager.perform(GetMissions.getMissionsWith(upcoming: upcoming, limit: limit, pageNumber: pageNumber, sort: sort))
+            let result = try await launchRepository.getLaunches(upcoming: upcoming, limit: limit, pageNumber: pageNumber, sort: sort)
             
             if let docs = result.docs {
                 for doc in docs {
@@ -90,7 +91,7 @@ class ShuttleViewModel: ObservableObject  {
         
         pageNumber += 1
         do {
-            let result: LaunchListData = try await requestManager.perform(GetMissions.getMissionsWith(upcoming: upcoming, limit: limit, pageNumber: pageNumber, sort: sort))
+            let result = try await launchRepository.getLaunches(upcoming: upcoming, limit: limit, pageNumber: pageNumber, sort: sort)
             
             if let docs = result.docs {
                 for doc in docs {
@@ -156,7 +157,7 @@ class ShuttleViewModel: ObservableObject  {
     
     func searchShuttles(with searchText: String) async  {
         do {
-            let result: LaunchListData = try await requestManager.perform(SearchMissions.getMissionsWith(upcoming: upcoming, limit: 20, pageNumber: 1, sort: "desc", searchText: searchText))
+            let result = try await launchRepository.searchLaunches(upcoming: upcoming, limit: 20, pageNumber: 1, sort: "desc", searchText: searchText)
             print("Real time search result: \(result.docs!.count)")
         } catch let error {
             print(error)
